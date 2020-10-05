@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS moodify_users CASCADE;
+
+DROP TABLE IF EXISTS moodify_moods;
