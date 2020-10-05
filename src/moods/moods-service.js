@@ -15,7 +15,6 @@ const MoodsService = {
       .where('mood.id', id)
       .first()
   },
-
   insertMood(db, newMood) {
       return db
       .insert(newMood)
@@ -33,10 +32,6 @@ const MoodsService = {
 
   serializeMood(mood) {
     const moodTree = new Treeize()
-
-    // Some light hackiness to allow for the fact that `treeize`
-    // only accepts arrays of objects, and we want to use a single
-    // object.
     const moodData = moodTree.grow([ mood ]).getData()[0]
 
     return {
