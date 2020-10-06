@@ -4,10 +4,13 @@ const Treeize = require('treeize')
 const MoodsService = {
   getAllMoods(db, id) {
     return db
-    .select('moodify_moods.user_id','moodify_moods.id', 'moodify_moods.note', 'moodify_moods.current_mood', 'moodify_moods.date_added')
+    .select('moodify_moods.user_id','moodify_moods.id', 'moodify_moods.note', 'moodify_moods.current_mood', 'moodify_moods.date_added', 'moodify_moods.category_id')
     .from('moodify_moods')
     .join('moodify_users', {
         'moodify_users.id': 'moodify_moods.user_id',
+    })
+    .join('moodify_categories', {
+      'moodify_moods.category_id': 'moodify_categories.id'
     })
     .where('moodify_moods.user_id', id)
   },
@@ -39,6 +42,7 @@ const MoodsService = {
       id: moodData.id,
       note: xss(moodData.note),
       current_mood: moodData.current_mood,
+      category_id: moodData.category_id,
       date_added: moodData.date_added,
       user_id: moodData.user_id
     }

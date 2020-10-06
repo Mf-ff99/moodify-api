@@ -5,10 +5,16 @@ CREATE TABLE moodify_users (
   date_created TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+CREATE TABLE moodify_categories (
+  id SERIAL PRIMARY KEY,
+  category VARCHAR(30)
+);
+
 CREATE TABLE moodify_moods (
     id SERIAL PRIMARY KEY,
     note TEXT,
     current_mood INTEGER NOT NULL,
+    category_id INTEGER REFERENCES moodify_categories(id),
     date_added TIMESTAMPTZ NOT NULL DEFAULT now(),
     user_id INTEGER REFERENCES moodify_users(id)
     ON DELETE SET NULL

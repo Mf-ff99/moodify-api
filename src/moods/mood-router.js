@@ -20,9 +20,9 @@ moodRouter
 moodRouter
     .route('/')
     .post(requireAuth, jsonBodyParser, (req, res, next) => {
-        const { current_mood, note } = req.body
+        const { current_mood, note, category_id } = req.body
 
-        const newMood = { current_mood, note }
+        const newMood = { current_mood, note, category_id }
 
         for (const [key, value] of Object.entries(newMood))
         if (value == null)
