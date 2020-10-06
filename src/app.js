@@ -6,6 +6,8 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const authRouter = require('./auth/auth-router')
 const moodsRouter = require('./moods/mood-router.js')
+const usersRouter = require('./users/users-router')
+
 
 const app = express()
 
@@ -20,6 +22,7 @@ app.use(helmet())
 
 app.use('/api/moods', moodsRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/users', usersRouter)
 
 app.use(function errorHandler(error, req, res, next) {
   let response

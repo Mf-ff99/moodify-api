@@ -7,9 +7,10 @@ const jsonBodyParser = express.json()
 
 moodRouter
     .route('/')
-    // .all(requireAuth)
+    .all(requireAuth)
     .get((req, res, next) => {
-        MoodsService.getAllMoods(req.app.get('db'))
+        // console.log(req.user.id)
+        MoodsService.getAllMoods(req.app.get('db'), Number(req.user.id))
         .then(moods => {
             res.json(MoodsService.serializeMoods(moods))
         })

@@ -2,13 +2,14 @@ const xss = require('xss')
 const Treeize = require('treeize')
 
 const MoodsService = {
-  getAllMoods(db) {
+  getAllMoods(db, id) {
     return db
     .select('moodify_moods.user_id','moodify_moods.id', 'moodify_moods.note', 'moodify_moods.current_mood', 'moodify_moods.date_added')
     .from('moodify_moods')
     .join('moodify_users', {
         'moodify_users.id': 'moodify_moods.user_id',
     })
+    .where('moodify_moods.user_id', id)
   },
   getById(db, id) {
     return this.getAllMoods(db)
