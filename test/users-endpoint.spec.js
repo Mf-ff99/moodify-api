@@ -24,7 +24,7 @@ describe(`User's endpoint`, () => {
     
       afterEach('cleanup', () => helpers.cleanTables(db))
 
-      describe.only(`User can register`, () => {
+      describe(`User can register`, () => {
         beforeEach(`insert moods`, () => {
             helpers.seedCategoriesTable(db, testCategories)
             helpers.seedMoodsTables(db, testUsers, testMoods)
@@ -34,7 +34,6 @@ describe(`User's endpoint`, () => {
                   user_name: 'testUser',
                   password: 'Password1!'
               }
-              console.log(newUser)
               return supertest(app)
               .post('/api/users')
               .send(newUser)

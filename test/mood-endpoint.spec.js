@@ -51,11 +51,11 @@ describe('Mood endpoints', function() {
         beforeEach(`insert moods`, () => {
             helpers.seedCategoriesTable(db, testCategories)
             helpers.seedMoodsTables(db, testUsers, testMoods)
+            helpers.seedUsers(db, testUsers)
           })
           
           it('Should return moods for user', () => {
             const testUser = testUsers[0]
-            console.log(testUser.user_name)
             return supertest(app)
             .get('/api/moods')
             .set('Authorization', helpers.makeAuthHeader(testUser))
