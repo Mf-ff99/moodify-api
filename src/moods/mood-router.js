@@ -9,7 +9,6 @@ moodRouter
     .route('/')
     .all(requireAuth)
     .get((req, res, next) => {
-        // console.log(req.user.id)
         MoodsService.getAllMoods(req.app.get('db'), Number(req.user.id))
         .then(moods => {
             res.json(MoodsService.serializeMoods(moods))
