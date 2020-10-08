@@ -28,6 +28,7 @@ describe(`Login authentication`, () => {
       beforeEach(`insert moods`, () => {
         helpers.seedCategoriesTable(db, testCategories)
         helpers.seedMoodsTables(db, testUsers, testMoods)
+        helpers.seedUsers(db, testUsers)
       })
 
       it(`Logs in user when User is registered`, () => {

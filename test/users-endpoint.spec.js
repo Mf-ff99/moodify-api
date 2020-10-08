@@ -34,6 +34,7 @@ describe(`User's endpoint`, () => {
                   user_name: 'testUser',
                   password: 'Password1!'
               }
+              
               return supertest(app)
               .post('/api/users')
               .send(newUser)

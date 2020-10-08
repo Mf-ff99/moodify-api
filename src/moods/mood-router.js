@@ -28,8 +28,8 @@ moodRouter
           return res.status(400).json({
             error: `Missing '${key}' in request body`
           })
-        //my computer is slow and somehow the tests won't pass without a console.log here :O
-        console.log(' ')
+        //my computer is slow? somehow the tests won't pass without a console.log here :O
+        console.log('    ')
 
         newMood.user_id = req.user.id
 
