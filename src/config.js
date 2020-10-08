@@ -1,6 +1,7 @@
 module.exports = {
   PORT: process.env.PORT || 8000,
   NODE_ENV: process.env.NODE_ENV || 'development',
-  DB_URL: process.env.DB_URL || 'postgresql://Mark@localhost/moodify',
+  DATABASE_URL: process.env.DATABASE_URL|| 'postgresql://Mark@localhost/moodify',
+  TEST_DATABASE_URL: process.env.TEST_DATABASE_URL,
   JWT_SECRET: process.env.JWT_SECRET,
 }
