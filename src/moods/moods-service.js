@@ -4,7 +4,7 @@ const Treeize = require('treeize')
 const MoodsService = {
   getAllMoods(db, id) {
     return db
-    .select('moodify_moods.user_id','moodify_moods.id', 'moodify_moods.note', 'moodify_moods.current_mood', 'moodify_moods.date_added', 'moodify_moods.category_id')
+    .select('moodify_moods.user_id', 'moodify_moods.hours_slept', 'moodify_moods.id', 'moodify_moods.note', 'moodify_moods.current_mood', 'moodify_moods.date_added', 'moodify_moods.category_id')
     .from('moodify_moods')
     .join('moodify_users', {
         'moodify_users.id': 'moodify_moods.user_id',
@@ -23,11 +23,6 @@ const MoodsService = {
       return db
       .insert(newMood)
       .into('moodify_moods')
-    //   .returning('*')
-    //   .then(([mood]) => mood)
-    //   .then(mood => 
-    //         MoodsService.getById(db, mood.id)
-    //     )
   },
 
   serializeMoods(moods) {
@@ -42,6 +37,7 @@ const MoodsService = {
       id: moodData.id,
       note: xss(moodData.note),
       current_mood: moodData.current_mood,
+      hours_slept: moodData.hours_slept,
       category_id: moodData.category_id,
       date_added: moodData.date_added,
       user_id: moodData.user_id

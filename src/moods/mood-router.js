@@ -5,6 +5,8 @@ const { requireAuth } = require('../middleware/jwt-auth')
 const moodRouter = express.Router()
 const jsonBodyParser = express.json()
 
+// const DB = req.app.get('db')
+
 moodRouter
     .route('/')
     .all(requireAuth)
@@ -19,9 +21,9 @@ moodRouter
 moodRouter
     .route('/')
     .post(requireAuth, jsonBodyParser, (req, res, next) => {
-        const { current_mood, note, category_id } = req.body
+        const { current_mood, note, category_id, hours_slept } = req.body
 
-        const newMood = { current_mood, note, category_id }
+        const newMood = { current_mood, note, category_id, hours_slept }
 
         for (const [key, value] of Object.entries(newMood))
         if (value == null)
@@ -45,6 +47,3 @@ moodRouter
     })
 
 module.exports = moodRouter
-
-// moodRouter
-//     .route('/')

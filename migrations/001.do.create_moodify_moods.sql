@@ -13,6 +13,7 @@ CREATE TABLE moodify_categories (
 CREATE TABLE moodify_moods (
     id SERIAL PRIMARY KEY,
     note TEXT,
+    hours_slept INTEGER,
     current_mood INTEGER NOT NULL,
     category_id INTEGER REFERENCES moodify_categories(id),
     date_added TIMESTAMPTZ NOT NULL DEFAULT now(),

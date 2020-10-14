@@ -8,7 +8,6 @@ const authRouter = require('./auth/auth-router')
 const moodsRouter = require('./moods/mood-router.js')
 const usersRouter = require('./users/users-router')
 
-
 const app = express()
 
 const morganOption = (NODE_ENV === 'production')

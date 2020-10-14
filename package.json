@@ -16,10 +16,11 @@
   "author": "",
   "license": "ISC",
   "engines": {
-       "node": "10.11.0"
-     },
+    "node": "10.11.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cjs-loader": "^0.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
