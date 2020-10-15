@@ -20,7 +20,7 @@ describe(`User's endpoint`, () => {
 
       after('disconnect from db', () => db.destroy())
 
-      before('cleanup', () => helpers.cleanTables(db))
+      beforeEach('cleanup', () => helpers.cleanTables(db))
     
       afterEach('cleanup', () => helpers.cleanTables(db))
 

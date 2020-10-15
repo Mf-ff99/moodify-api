@@ -7,11 +7,12 @@ const jwt = require('jsonwebtoken')
 describe(`Login authentication`, () => {
     let db
     const {
-        testUsers,
-        testCategories,
-        testMoods
-    } = helpers.makeMoodsFixtures()
-
+      testMoods,
+      testUsers,
+      testCategories,
+  } = helpers.makeMoodsFixtures()
+    const testUser = testUsers[0]
+    
     before('make knex instance', () => {
         db = knex({
           client: 'pg',
@@ -20,37 +21,33 @@ describe(`Login authentication`, () => {
         app.set('db', db)
       })
       after('disconnect from db', () => db.destroy())
-
-      before('cleanup', () => helpers.cleanTables(db))
-    
-      afterEach('cleanup', () => helpers.cleanTables(db))
-
-      beforeEach(`insert moods`, () => {
-        helpers.seedCategoriesTable(db, testCategories)
-        helpers.seedMoodsTables(db, testUsers, testMoods)
+      
+      before(`insert moods`, () => {
         helpers.seedUsers(db, testUsers)
+        
       })
-
+      afterEach('cleanup', () => helpers.cleanTables(db))
+      
       it(`Logs in user when User is registered`, () => {
-          const testUser = testUsers[0]
         const userValidCreds = {
-            user_name: testUser.user_name,
-            password: testUser.password,
+          user_name: testUser.user_name,
+          password: testUser.password,
         }
         const expectedToken = jwt.sign(
-            { user_id: testUser.id }, // payload
+            { user_id: testUser.id}, // payload
             process.env.JWT_SECRET,
             {
                 subject: testUser.user_name,
                 algorithm: 'HS256',
-            }
+            },
         )
+        console.log(userValidCreds)
           return supertest(app)
-          .post('/api/auth/login')
-          .send(userValidCreds)
-          .expect(200, {
-            authToken: expectedToken,
-        })
+            .post('/api/auth/login')
+            .send(userValidCreds)
+            .expect(200, {
+              authToken: expectedToken,
+            })
 
 })
 })

@@ -37,6 +37,7 @@ function makeMoodsArray(users) {
             current_mood: 6,
             note: 'today sucked',
             category_id: 2,
+            hours_slept: 5,
             user_id: users[2].id,
             date_added: '2020-09-04 11:37:30',
         }, {
@@ -44,6 +45,7 @@ function makeMoodsArray(users) {
             current_mood: 6,
             note: 'today sucked',
             category_id: 2,
+            hours_slept: 5,
             user_id: users[1].id,
             date_added: '2020-09-04 11:37:30',
         }, {
@@ -51,6 +53,7 @@ function makeMoodsArray(users) {
             current_mood: 6,
             note: 'today sucked',
             category_id: 2,
+            hours_slept: 5,
             user_id: users[0].id,
             date_added: '2020-09-04 11:37:30',
         }, {
@@ -58,6 +61,7 @@ function makeMoodsArray(users) {
             current_mood: 6,
             note: 'today sucked',
             category_id: 2,
+            hours_slept: 5,
             user_id: users[2].id,
             date_added: '2020-09-04 11:37:30',
         },

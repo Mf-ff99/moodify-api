@@ -20,7 +20,7 @@ describe('Mood endpoints', function() {
 
       after('disconnect from db', () => db.destroy())
 
-      before('cleanup', () => helpers.cleanTables(db))
+      beforeEach('cleanup', () => helpers.cleanTables(db))
     
       afterEach('cleanup', () => helpers.cleanTables(db))
 
@@ -28,7 +28,7 @@ describe('Mood endpoints', function() {
           beforeEach(`insert moods`, () => {
               helpers.seedCategoriesTable(db, testCategories)
               helpers.seedMoodsTables(db, testUsers, testMoods)
-            })
+6            })
 
           it(`Posts a mood & responds with 201 when authorized user posts mood`, function() {
               const testUser = testUsers[0]
@@ -36,6 +36,7 @@ describe('Mood endpoints', function() {
                   current_mood: 5,
                   note: 'test',
                   user_id: testUser.id,
+                  hours_slept: 5,
                   category_id: 1,
                   date_added: '2020-09-04 11:37:30',
               }
@@ -48,9 +49,7 @@ describe('Mood endpoints', function() {
     })
 
     describe(`GET /api/moods`, () => {
-        beforeEach(`insert moods`, () => {
-            helpers.seedCategoriesTable(db, testCategories)
-            helpers.seedMoodsTables(db, testUsers, testMoods)
+        beforeEach(`insert users`, () => {
             helpers.seedUsers(db, testUsers)
           })
           
