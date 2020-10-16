@@ -11,8 +11,19 @@
  Moodify-API is an Express server using knex to make queries to a PostgreSQL database.
  
  The server utilizes the Express router library to easily organize the server into a logical and RESTful state.
- In addition to Express, I used Mocha and Chai for testing Express CRUD-functions and endpoints. 
+ In addition to Express, I used Mocha and Chai for testing Express CRUD-functions and endpoints.
+ 
+ The stack for the backend:
 
+* Express.js
+* Knex
+* Node.js
+* PostgreSQL
+* SQL
+* DBeaver
+* Mocha
+* Chai
+ 
 ## User Authentication
   To incorporate user-registration and login functionality, I implemented the bcryptjs and jsonwebtoken libraries.
   
