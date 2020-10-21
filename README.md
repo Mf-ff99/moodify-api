@@ -7,7 +7,7 @@
  
  ## API Endpoints
  
- ### POST /api/users endpoint
+ ### POST /api/users
  
   POST's to this endpoint with the approriate values will register a user within the moodify-users table in the PostgreSQL Database
   
