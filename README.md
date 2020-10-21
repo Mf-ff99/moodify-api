@@ -1,4 +1,4 @@
-# Moodify API!
+# Moodify API
 
  Moodify API manages the backend of Moodify, an app created by me! You can view the live deployment here: https://moodify-client.vercel.app/
  
