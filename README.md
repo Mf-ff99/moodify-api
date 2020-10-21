@@ -7,19 +7,19 @@
  
  ## API Endpoints
  
- POST /api/users endpoint
- ==
+ ### POST /api/users endpoint
+ 
   POST's to this endpoint with the approriate values will register a user within the moodify-users table in the PostgreSQL Database
   
-POST /api/auth/login
+### POST /api/auth/login
 ==
  POSTs to the /auth/login endpoint need to contain a username and password associated with a previously-registered user. Appropriately submitted credentials will return an auth-token.
  
-GET /api/moods/
+### GET /api/moods/
 == 
  Fetching from the /api/moods/ endpoint returns the moods created by the logged-in user.
  
-POST /api/moods/
+### POST /api/moods/
 ==
   POST requests made to this endpoint must contain the user's current mood, a note, a category ID, and hours slept. 
  
