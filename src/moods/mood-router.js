@@ -5,8 +5,6 @@ const { requireAuth } = require('../middleware/jwt-auth')
 const moodRouter = express.Router()
 const jsonBodyParser = express.json()
 
-// const DB = req.app.get('db')
-
 moodRouter
     .route('/')
     .all(requireAuth)
@@ -30,7 +28,6 @@ moodRouter
           return res.status(400).json({
             error: `Missing '${key}' in request body`
           })
-        //my computer is slow? somehow the tests won't pass without a console.log here :O
         console.log('    ')
 
         newMood.user_id = req.user.id
