@@ -5,6 +5,24 @@
  Moodify tracks your mood, hours slept, as well as other odds and ends of information that you choose to add.
  Moodify utilizes react-chart-js-2 to build a comprehensive chart of your moods from the information you add.
  
+ ## API Endpoints
+ 
+ POST /api/users endpoint
+ ==
+  POST's to this endpoint with the approriate values will register a user within the moodify-users table in the PostgreSQL Database
+  
+POST /api/auth/login
+==
+ POSTs to the /auth/login endpoint need to contain a username and password associated with a previously-registered user. Appropriately submitted credentials will return an auth-token.
+ 
+GET /api/moods/
+== 
+ Fetching from the /api/moods/ endpoint returns the moods created by the logged-in user.
+ 
+POST /api/moods/
+==
+  POST requests made to this endpoint must contain the user's current mood, a note, a category ID, and hours slept. 
+ 
 
 ## The backend tech stack
 
